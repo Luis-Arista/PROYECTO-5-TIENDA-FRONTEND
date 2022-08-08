@@ -1,0 +1,11 @@
+.lista_favoritos_container{
+    max-width: 93rem;
+    margin: 0 auto;
+    min-height: 510px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(234, 234, 234);
+    padding: 15px;
+}

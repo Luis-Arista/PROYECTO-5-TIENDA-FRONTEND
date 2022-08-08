@@ -1,0 +1,29 @@
+.contenedor_home_info{
+    display: flex;
+    max-width: 93rem;
+}
+
+.Home_imagen{
+    width: 50%;
+}
+
+.Home_imagen img {
+    width: 100%;
+}
+
+.home_info{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.home_info h1{
+    padding: 15px;
+}
+
+.home_info p{
+    padding: 15px;
+}

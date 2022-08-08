@@ -1,0 +1,10 @@
+.contenedor_perfil{
+    height: 540px;
+}
+
+.info_perfil{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

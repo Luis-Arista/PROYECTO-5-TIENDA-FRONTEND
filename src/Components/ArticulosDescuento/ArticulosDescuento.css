@@ -1,0 +1,27 @@
+.contenedor_titulo{
+    max-width: 93rem;
+    margin: 0 auto;
+    padding: 5px;
+}
+
+.contenedor_articulos_descuento{
+    max-width: 93rem; 
+    margin: 0 auto;
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: rgb(234, 234, 234);
+    min-height: 458px
+
+}
+
+.lista_articulos_descuentos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+

@@ -1,24 +1,39 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter , Routes , Route } from 'react-router-dom'
+import Home from './Pages/Home/Home';
+import Navbar from './Components/Navbar/Navbar';
+import Footer from './Components/Footer/Footer';
+import Login from './Pages/Login/Login';
+import { UserProvider } from './Context/Usuario/UserProvider';
+import Registrar from './Pages/Registrar/Registrar';
+import MiPerfil from './Pages/MiPerfil/MiPerfil';
+import Error404 from './Pages/Error404/Error404';
+import Favoritos from './Pages/Favoritos/Favoritos';
+import Productos from './Pages/Productos/Productos';
+import Ofertas from './Pages/Ofertas/Ofertas';
+import AgregarProductos from './Pages/AgregarProductos/AgregarProductos';
+import InforArticulo from './Pages/InforArticulo/InforArticulo';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <UserProvider>
+        <Navbar />
+        <Routes>
+          <Route path='/' element = { <Home /> } />
+          <Route path='/login' element = { <Login /> } />
+          <Route path='/registrar' element = { <Registrar /> } />
+          <Route path='/perfil' element = { <MiPerfil /> } />
+          <Route path='/agregar/productos' element = { <AgregarProductos /> } />
+          <Route path='/favoritos' element = { <Favoritos /> } />
+          <Route path='/ofertas' element = { <Ofertas /> } />
+          <Route path='/productos' element = { <Productos /> } />
+          <Route path='/:id' element = { <InforArticulo /> } />
+          <Route path='*' element = { <Error404 /> } />
+        </Routes>
+        <Footer />
+      </UserProvider>
+    </BrowserRouter>
   );
 }
 

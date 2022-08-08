@@ -1,0 +1,69 @@
+.Conteendor_agregar_producto{
+    height: 540px;
+    background-color: rgb(234, 234, 234);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Conteendor_agregar_producto form{
+    background-color: #fff;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    height: 450px;
+    width: 90%;
+}
+
+.registrar_articulo , .registrar_precio , .registrar_precio_descuento , .registrar_descripcion , .registrar_Categoria , .registrar_Oferta{
+    position: relative;
+    display: flex;
+    width: 100%;
+}
+
+
+.registrar_articulo input , .registrar_precio input , .registrar_precio_descuento input , .registrar_descripcion textarea , .registrar_Categoria input , .registrar_Oferta input{
+    padding: 5px;;
+    outline: none;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.registrar_articulo label , .registrar_precio label , .registrar_precio_descuento label , .registrar_descripcion label , .registrar_Categoria label{
+    position: absolute;
+    padding: 5px;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+
+.registrar_articulo input:focus ~ label , .registrar_precio input:focus ~ label , .registrar_precio_descuento input:focus ~ label ,  .registrar_descripcion input:focus ~ label , .registrar_Categoria input:focus ~ label {
+     top: -10px;
+     background-color: #fff;
+     padding: 1px;
+     font-size: 12px;
+     transition: all 0.2s;
+     font-weight: bolder;
+}
+
+
+
+
+.registrar_boton{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.registrar_boton button{
+    padding: 5px 10px;
+    border: none;
+    font-weight: bold;
+    background-color: pink;
+    cursor: pointer;
+}
+ 

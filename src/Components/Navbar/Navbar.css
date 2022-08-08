@@ -1,0 +1,89 @@
+header{
+    position: relative;
+    /*background: linear-gradient(90deg, #B49FDC , #C5EBFE , #FEFD97 , #A5FBCE);*/
+    background-color: white;
+
+}
+ 
+nav{
+    position: relative;
+}
+
+.navbar_contenedor{
+    max-width: 93rem;
+    margin: 0 auto;
+
+}
+
+.navbar_header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px 0;
+}
+
+
+.Logo{
+    width: 50px;
+    height: 50px;
+}
+
+.navbar_opciones{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+}
+
+
+.categorias{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.navbar_body{
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.navbar_menu_option{
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #000;
+    font-weight: bolder;
+}
+
+.navbar_menu_option:hover{
+    color: blue;
+}
+
+.flecha_abajo{
+    font-size: 10px;
+    margin: 0 5px;
+}
+
+.navbar_footer{
+    position: absolute;
+    width: 100%;
+    /*background: linear-gradient(90deg, #B49FDC , #C5EBFE , #FEFD97 , #A5FBCE);*/
+    background-color: white;
+    border-bottom: 1px solid #000;
+    z-index: 2;
+
+}
+
+.navbar_footer .categorias{
+    padding: 10px 35px;
+}
+
+.navbar_categorias_option{
+    padding: 10px 10px;
+    text-decoration: none;
+    font-weight: bolder;
+    color: #000000;
+}
+

@@ -1,0 +1,10 @@
+.contendor_banner{
+    max-width: 93rem;
+    margin: 0 auto;
+}
+
+
+.contendor_banner img{
+    width: 100%;
+    height: auto;
+}

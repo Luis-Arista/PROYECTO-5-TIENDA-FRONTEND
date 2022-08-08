@@ -1,0 +1,85 @@
+.Conteendor_formulario_registrar{
+    height: 540px;
+    background-color: rgb(234, 234, 234);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Conteendor_formulario_registrar form{
+    background-color: #fff;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    height: 300px;
+    width: 250px;
+}
+
+.registrar_email , .registrar_contraseña , .registrar_nombre , .registrar_apellido , .registrar_confirmar_contraseña{
+    position: relative;
+    display: flex;
+    width: 100%;
+}
+
+
+.registrar_email input , .registrar_contraseña input , .registrar_nombre input , .registrar_apellido input , .registrar_confirmar_contraseña input{
+    padding: 5px;;
+    outline: none;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.registrar_email label , .registrar_contraseña label , .registrar_nombre label , .registrar_apellido label , .registrar_confirmar_contraseña label{
+    position: absolute;
+    padding: 5px;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+
+.registrar_email input:focus ~ label , .registrar_contraseña input:focus ~ label , .registrar_nombre input:focus ~ label ,  .registrar_apellido input:focus ~ label , .registrar_confirmar_contraseña input:focus ~ label {
+     top: -10px;
+     background-color: #fff;
+     padding: 1px;
+     font-size: 12px;
+     transition: all 0.2s;
+     font-weight: bolder;
+}
+
+
+
+
+.registrar_boton{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.registrar_boton button{
+    padding: 5px 10px;
+    border: none;
+    font-weight: bold;
+    background-color: pink;
+    cursor: pointer;
+}
+
+.registrar_mensaje p{
+ margin: 0;
+ padding: 0;
+}
+
+.mensaje_contraseña{
+    position: absolute;
+    bottom: -13px;
+}
+
+.mensaje_contraseña p {
+    margin: 0;
+    font-weight: bolder;
+    color: red;
+    font-size: 12px;
+}

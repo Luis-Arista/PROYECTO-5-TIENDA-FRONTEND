@@ -1,0 +1,98 @@
+.Conteendor_formulario_login{
+    height: 540px;
+    background-color: rgb(234, 234, 234);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form{
+    background-color: #fff;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    height: 120px;
+    width: 250px;
+}
+
+.login_email{
+    position: relative;
+    display: flex;
+    width: 100%;
+}
+
+
+.login_email input{
+    padding: 5px;;
+    outline: none;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.login_email label{
+    position: absolute;
+    padding: 5px;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+
+.login_email input:focus ~ label{
+     top: -10px;
+     background-color: #fff;
+     padding: 1px;
+     font-size: 12px;
+     transition: all 0.2s;
+     font-weight: bolder;
+}
+
+.login_contraseña{
+    position: relative;
+    display: flex;
+    width: 100%;
+}
+
+
+.login_contraseña input{
+    padding: 5px;;
+    outline: none;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.login_contraseña label{
+    position: absolute;
+    padding: 5px;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+
+}
+
+
+.login_contraseña input:focus ~ label{
+     top: -10px;
+     background-color: #fff;
+     padding: 1px;
+     font-size: 12px;
+     transition: all 0.2s;
+     font-weight: bolder;
+}
+
+.login_boton{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.login_boton button{
+    padding: 5px 10px;
+    border: none;
+    font-weight: bold;
+    background-color: pink;
+    cursor: pointer;
+}

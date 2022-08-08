@@ -1,0 +1,72 @@
+.favoritos_card{
+    background-color:#fff ;
+    display: flex;
+    justify-content: center;
+    width: 350px;
+    border-bottom: 1px solid rgb(177, 177, 177);
+}
+
+.favoritos_img{
+    width: 40%;
+}
+
+.favoritos_info{
+    width: 60%;
+}
+
+.favoritos_header{
+    display: flex;
+    flex-direction: column;
+}
+
+.mensaje_oferta_favoritos{
+    margin: 0;
+    background-color: blue;
+    font-size: 12px;
+    color: white;
+    font-weight: bold;
+    padding: 0 5px;
+    margin: 0 auto;
+    margin-top: 5px;
+    width: 90%;
+    text-align: center;
+}
+
+.favoritos_header h4{
+    text-align: center;
+    margin: 0;
+}
+
+.card_precios_favoritos{
+    padding: 5px 0;
+}
+
+.precio_viejo_favoritos{
+    margin: 0;
+    font-size: 12px;
+    color: rgb(106, 106, 106);
+    text-decoration: line-through;
+}
+
+.precio_favoritos{
+    margin: 0;
+    font-weight: bolder;
+}
+
+.card_botones_favoritos{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.boton_favoritos_favoritos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    border: 0;
+    background-color: rgba(255, 255, 255, 0.697);
+}
+
+.corazon_favoritos_activo{
+    fill: red;
+}

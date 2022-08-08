@@ -1,0 +1,37 @@
+footer{
+    background-color: rgb(239, 239, 239);
+}
+
+.contenedor_footer{
+    max-width: 93rem;
+}
+
+.redes_sociales{
+    text-align: center;
+    padding: 15px;
+}
+
+.redes_sociales a{
+    margin: 5px;
+}
+
+.icono_social{
+    fill: black;
+    width: 30px;
+    height: 30px;
+}
+
+.footer_body{
+    text-align: center;
+    padding: 15px;
+}
+
+.menu_footer{
+    color: black;
+    margin: 5px;
+}
+
+.footer_footer{
+    text-align: center;
+    padding: 15px;
+}

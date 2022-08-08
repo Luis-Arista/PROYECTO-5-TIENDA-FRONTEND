@@ -1,0 +1,48 @@
+.navbar_buscador{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.navbar_buscador input{
+    padding: 5px 20px 5px 0px;
+    width: 250px;
+    border: 1px solid black;
+    border-left: none;
+    outline: none;
+}
+
+
+
+
+.navbar_buscador label{
+    padding: 4.5px;
+    background-color: #fff;
+    border: 1px solid black;
+    border-right: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lupa{
+    fill: rgb(131, 131, 131);
+}
+
+.limpiar_buscador{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    right: 5px;
+
+}
+
+.limpiar{
+    fill: rgb(131, 131, 131);
+
+}
