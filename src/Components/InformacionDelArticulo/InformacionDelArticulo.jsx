@@ -1,4 +1,4 @@
-import React , { useState , useEffect } from 'react'
+import React , { useState , useEffect  } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import env from 'react-dotenv'
@@ -7,13 +7,14 @@ import BotonesInfoArticulo from '../BototonesInfoArticulo/BotonesInfoArticulo'
 
 
 const InformacionDelArticulo = () => {
+    const  {id}  = useParams()
 
-    const  id  = useParams()
 
-    const [ articulo , setArticulo ] = useState([])
+
+    const [ articulo , setArticulo ] = useState({})
     const cargar = async() => {
-        let url = `${env.URL_API}/articulos/articulo`
-        const respuesta = await axios.post( url , id)
+        let url = `${env.URL_API}/articulos/${id}`
+        const respuesta = await axios.get( url )
         setArticulo( respuesta.data)
         
     }
@@ -53,7 +54,7 @@ const InformacionDelArticulo = () => {
                     <p>{articulo.descripcion}</p>
                 </div>
             </div>
-            <BotonesInfoArticulo />
+            <BotonesInfoArticulo id = {id} />
         </div>
     </section>
   )

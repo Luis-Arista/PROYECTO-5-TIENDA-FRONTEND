@@ -1,12 +1,13 @@
 import React from 'react'
 import './ArticulosCard.css'
-import {BsHeartFill , BsHeart} from 'react-icons/bs'
 import { useNavigate  } from 'react-router-dom'
+import CorazonFavorito from '../CorazonFavorito/CorazonFavorito'
 
 const ArticulosCard = ( { articulo } ) => {
 
-
   const navigate = useNavigate()
+
+ 
 
   const informacionArticulos = () => {
     navigate(`${articulo._id}`)
@@ -36,9 +37,7 @@ const ArticulosCard = ( { articulo } ) => {
             }
         </div>
       </div>
-      <div className="card_botones">
-        <button onClick={() => alert(123)} className='boton_favoritos' ><BsHeart className='corazon_favoritos'/></button>
-      </div>
+         <CorazonFavorito id ={articulo._id} />
     </div>
   )
 }

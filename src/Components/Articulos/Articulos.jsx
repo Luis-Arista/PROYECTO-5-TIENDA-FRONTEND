@@ -3,17 +3,16 @@ import './Articulos.css'
 import axios from 'axios'
 import env from 'react-dotenv'
 import ArticulosCard from '../ArticulosCard/ArticulosCard'
-import {BsArrowLeftShort , BsArrowRightShort} from 'react-icons/bs'
 
 
 
-const Articulos = () => {
+const Articulos = ( { parametro } ) => {
 
     const [ articulos , setArticulos ] = useState([])
 
     const cargar = async () => {
-        const url = `${env.URL_API}/lista/articulos`
-        const respuesta = await axios.get(url)
+        const url = `${env.URL_API}/articulos/lista`
+        const respuesta = await axios.post(url , parametro)
         setArticulos( respuesta.data)
     }
 

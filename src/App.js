@@ -10,7 +10,6 @@ import MiPerfil from './Pages/MiPerfil/MiPerfil';
 import Error404 from './Pages/Error404/Error404';
 import Favoritos from './Pages/Favoritos/Favoritos';
 import Productos from './Pages/Productos/Productos';
-import Ofertas from './Pages/Ofertas/Ofertas';
 import AgregarProductos from './Pages/AgregarProductos/AgregarProductos';
 import InforArticulo from './Pages/InforArticulo/InforArticulo';
 
@@ -26,7 +25,6 @@ function App() {
           <Route path='/perfil' element = { <MiPerfil /> } />
           <Route path='/agregar/productos' element = { <AgregarProductos /> } />
           <Route path='/favoritos' element = { <Favoritos /> } />
-          <Route path='/ofertas' element = { <Ofertas /> } />
           <Route path='/productos' element = { <Productos /> } />
           <Route path='productos/:id' element = { <InforArticulo /> } />
           <Route path='*' element = { <Error404 /> } />

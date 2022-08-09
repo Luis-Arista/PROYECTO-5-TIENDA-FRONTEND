@@ -1,0 +1,27 @@
+
+.card_botones{
+    display: flex;
+    justify-content: flex-end;
+    background-color: rgba(255, 255, 255, 0.697);
+    position: absolute;
+    right: 15px;
+    top: 15px;
+}
+
+.boton_favoritos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    border: 0;
+    background-color: transparent;
+}
+
+.corazon_favoritos_vacio , .corazon_favoritos_lleno{
+    width: 20px;
+    height: 20px;
+}
+
+.corazon_favoritos_lleno{
+    fill: blue;
+}

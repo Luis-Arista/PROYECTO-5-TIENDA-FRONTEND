@@ -1,16 +1,22 @@
 import React , { useState , useContext } from 'react'
 import { UserContext } from '../../Context/Usuario/UserContext'
 import './Navbar.css'
-import { Link } from 'react-router-dom'
+import { Link , useNavigate} from 'react-router-dom'
 import Buscador from '../Buscador/Buscador'
 import Logo from '../../assets/img/Logo.jpeg'
 
 
 const Navbar = () => {
 
+    let navigate = useNavigate()
+
     const[ flag , setFlag ] = useState(false)
     const { usuario , setUsuario } = useContext( UserContext )
 
+    const mostrarArticulos = (e , busqueda) => {
+        e.preventDefault()
+        navigate( '/productos' , { state: busqueda })
+    }
 
   return (
     <header>
@@ -60,8 +66,8 @@ const Navbar = () => {
                 '':
                 <div className="navbar_footer" onMouseLeave={() => setFlag(false)}>
                     <div className="categorias">
-                        <Link className='navbar_categorias_option' to='/productos'>Todos</Link> 
-                        <Link className='navbar_categorias_option' to='/ofertas'>Ofertas</Link>
+                        <button onClick={(e) => mostrarArticulos(e , {})}>Todos</button>
+                        <button onClick={(e) => mostrarArticulos(e , { ofertas: true})}>descuentos</button>
                     </div>
                 </div>
         }
