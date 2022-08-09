@@ -28,7 +28,7 @@ function App() {
           <Route path='/favoritos' element = { <Favoritos /> } />
           <Route path='/ofertas' element = { <Ofertas /> } />
           <Route path='/productos' element = { <Productos /> } />
-          <Route path='/:id' element = { <InforArticulo /> } />
+          <Route path='productos/:id' element = { <InforArticulo /> } />
           <Route path='*' element = { <Error404 /> } />
         </Routes>
         <Footer />

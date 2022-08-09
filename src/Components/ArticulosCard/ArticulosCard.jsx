@@ -1,11 +1,20 @@
 import React from 'react'
 import './ArticulosCard.css'
 import {BsHeartFill , BsHeart} from 'react-icons/bs'
+import { useNavigate  } from 'react-router-dom'
 
 const ArticulosCard = ( { articulo } ) => {
+
+
+  const navigate = useNavigate()
+
+  const informacionArticulos = () => {
+    navigate(`${articulo._id}`)
+  }
+
   return (
     <div className="card">
-      <div onClick={() => alert('hola')} className='contenedor_card'>
+      <div onClick={() => informacionArticulos()} className='contenedor_card'>
         <div className="card_imagen">
           <img src={articulo.imagen} alt="" />
         </div>
