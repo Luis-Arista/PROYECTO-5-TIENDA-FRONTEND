@@ -1,47 +1,38 @@
-import React , { useState , useContext , useEffect } from 'react'
-import { UserContext } from '../../Context/Usuario/UserContext'
+import React , { useState , useEffect} from 'react'
 import './ListaFavoritos.css'
-import env from 'react-dotenv'
-import axios from 'axios'
 import FavoritosCard from '../FavoritosCard/FavoritosCard'
 
-const ListaFavoritos = () => {
+const ListaFavoritos = ( { usuario } ) => {
 
-    const { usuario } = useContext(UserContext)
-    const [ favoritos , setFavoritos ] = useState(usuario.favoritos)
-    const [ lista , setLista] = useState([])
-   
-   
- //aun no funciona bien
- const cargar = async() => {
-    const url = `${env.URL_API}/favoritos`
-    let arr = []
-    favoritos.forEach( async(favorito , i) => {
-        await axios.post( url , { id: favorito})
-        .then( (res) => {
-            arr.push( res.data )
-            setLista(arr)
-        })
-    })  
-    
- }
+    const [ estatus , setEstatus ] = useState('si')
 
- useEffect( () => {
-    if( usuario !== 'ninguno'){
-        cargar()
+    const cargar = () => {
+        if(usuario.favoritos.length === 0){
+            setEstatus('no')
+        } else {
+            setEstatus('si')
+        }
     }
- }, [favoritos])
+   
+    useEffect( () => {
+        if(usuario !== 'ninguno'){
+            cargar()
+        }
+    })
     
 
   return (
     <section>
         <div className="lista_favoritos_container">
             {
-                lista.map(( articulo , i ) =>{
+                usuario === 'ninguno' ? '' : 
+                estatus === 'no' ? <h1>No tienes ningun articulo en tus favoritos</h1>:
+                usuario.favoritos.map(( articuloFavorito , i ) =>{
                     return(
-                         <FavoritosCard key={ i } articulo = {articulo} />
+                        <FavoritosCard key={ i } articuloFavorito = {articuloFavorito} />
                     )
                 })
+                
             }
         </div>
     </section>

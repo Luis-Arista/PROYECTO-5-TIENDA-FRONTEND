@@ -9,14 +9,12 @@ import BotonesInfoArticulo from '../BototonesInfoArticulo/BotonesInfoArticulo'
 const InformacionDelArticulo = () => {
     const  {id}  = useParams()
 
-
-
     const [ articulo , setArticulo ] = useState({})
+    
     const cargar = async() => {
-        let url = `${env.URL_API}/articulos/${id}`
+        const url = `${env.REACT_APP_URL_API}/articulos/${id}`
         const respuesta = await axios.get( url )
         setArticulo( respuesta.data)
-        
     }
     
     useEffect( () => {
@@ -54,7 +52,7 @@ const InformacionDelArticulo = () => {
                     <p>{articulo.descripcion}</p>
                 </div>
             </div>
-            <BotonesInfoArticulo id = {id} />
+            <BotonesInfoArticulo articulo ={articulo} id = {id} />
         </div>
     </section>
   )

@@ -20,8 +20,8 @@ const FormRegistrar = () => {
   const registrarse = async() => {
 
     if ( coinside && contraseña !== '' ) {
-        let url = `${env.URL_API}/registrar`
-        let urlDos = `${env.URL_API}/usuarios/usuario/info`
+        let url = `${env.REACT_APP_URL_API}/registrar`
+        let urlDos = `${env.REACT_APP_URL_API}/usuarios/usuario/info`
         let db = {
             nombre : nombre.toLocaleLowerCase(),
             apellido : apellido.toLocaleLowerCase(),

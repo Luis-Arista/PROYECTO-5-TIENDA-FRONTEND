@@ -1,28 +1,47 @@
 .favoritos_card{
     background-color:#fff ;
-    display: flex;
-    justify-content: center;
-    width: 350px;
+    width: 70%;
     border-bottom: 1px solid rgb(177, 177, 177);
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+
+
 
 .favoritos_img{
     width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    height: 250px;
+}
+
+.favoritos_img img {
+    width: 100%;
 }
 
 .favoritos_info{
     width: 60%;
+    height: 250px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
 }
 
 .favoritos_header{
     display: flex;
     flex-direction: column;
+    padding-top: 45px;
 }
+
 
 .mensaje_oferta_favoritos{
     margin: 0;
     background-color: blue;
-    font-size: 12px;
     color: white;
     font-weight: bold;
     padding: 0 5px;
@@ -30,43 +49,35 @@
     margin-top: 5px;
     width: 90%;
     text-align: center;
+    border-radius: 10px;
 }
 
 .favoritos_header h4{
     text-align: center;
     margin: 0;
+    font-size: 20px;
 }
 
 .card_precios_favoritos{
     padding: 5px 0;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
 }
 
 .precio_viejo_favoritos{
     margin: 0;
-    font-size: 12px;
     color: rgb(106, 106, 106);
     text-decoration: line-through;
+    font-weight: bolder;
 }
 
 .precio_favoritos{
     margin: 0;
+    font-size: 20px;
     font-weight: bolder;
 }
 
-.card_botones_favoritos{
-    display: flex;
-    justify-content: flex-end;
-}
 
-.boton_favoritos_favoritos{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 5px;
-    border: 0;
-    background-color: rgba(255, 255, 255, 0.697);
-}
-
-.corazon_favoritos_activo{
-    fill: red;
-}

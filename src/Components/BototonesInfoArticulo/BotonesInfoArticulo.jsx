@@ -5,23 +5,27 @@ import './BotonesInfoArticulo.css'
 import env from 'react-dotenv'
 import axios from 'axios'
 
-const BotonesInfoArticulo = ( { id } ) => {
+const BotonesInfoArticulo = ( { articulo , id } ) => {
 
     let navigate = useNavigate()
 
     const { usuario } = useContext( UserContext )
-    const [ favorito , setFavorito] = useState()
-    //let favorito
+    const [ estatus , setEstatus ] = useState('')
+
+    
     const cargar = () => {
-           
-        setFavorito(
-             usuario !== 'ninguno' ?
-                usuario.favoritos.find( ( favorito , i) => {
-                    return favorito === id
-                }):''
-                
-        )
-        
+       if ( usuario === 'ninguno'){
+        setEstatus( 'logeate para agregar a favoritos' )
+       } else {
+            const idFavorito = usuario.favoritos.find( ( favorito ) => {
+                return favorito._id === id
+            })
+            if( !idFavorito) {
+                setEstatus('Agregar a favoritos')
+            } else {
+                setEstatus('Quitar de favoritos')
+            }
+       }
     }
 
     useEffect( () => {
@@ -29,49 +33,34 @@ const BotonesInfoArticulo = ( { id } ) => {
     },[]) 
 
 
-   const logeate = (e) => {
+    const manejarClick = (e) => {
         e.preventDefault()
-        navigate('/login' , { state: { pagina : `/productos/${id}`}})
-    }
- 
-    const quitarFavorito = ( e ) => {
-        e.preventDefault()
-
-        const url = `${env.URL_API}/usuarios/${usuario.id}`
-
-        usuario.favoritos.forEach( ( favorito , i) => {
-            if( favorito === id){
-               usuario.favoritos.splice( i , 1)
+        if ( estatus === 'logeate para agregar a favoritos') {
+            navigate('/login' , { state: { pagina : `/productos/${id}`}})
+        }else {
+            const url = `${env.REACT_APP_URL_API}/usuarios/${usuario.id}`
+            if( estatus === 'Quitar de favoritos'){
+                usuario.favoritos.forEach( ( favorito , i) => {
+                    if( favorito._id === id){
+                    usuario.favoritos.splice( i , 1)
+                    }
+                })
+                const favoritos = {
+                    favoritos: usuario.favoritos
+                } 
+                axios.patch(url , favoritos)
+                setEstatus('Agregar a favoritos')
+            } else if( estatus === 'Agregar a favoritos' ) {
+                usuario.favoritos.push(articulo)       
+                const favoritos ={
+                    favoritos: usuario.favoritos
+                } 
+                axios.patch(url , favoritos)
+                setEstatus('Quitar de favoritos')
             }
-        })
-        const favoritos ={
-            favoritos: usuario.favoritos
         } 
-        console.log(favoritos);
-
-        axios.patch(url , favoritos)
-        .then(() => alert('ya esta')) 
-
-
     }
- 
-    const agregarFavoritos = ( e ) => {
-        e.preventDefault()
 
-        const url = `${env.URL_API}/usuarios/${usuario.id}`
-
-        usuario.favoritos.push(id)
-       
-        const favoritos ={
-            favoritos: usuario.favoritos
-        } 
-        console.log(favoritos);
-
-        axios.patch(url , favoritos)
-        .then(() => alert('ya esta')) 
-
-
-    }
 
   return (
     <div className='informacion_articulos_botones'>
@@ -88,11 +77,7 @@ const BotonesInfoArticulo = ( { id } ) => {
             </>
         }
         <div className="informacion_boton_favoritos">
-             {
-                usuario === 'ninguno' ? <button onClick={ (e) => logeate(e)}>Logeate para agregar a favoritos</button> :
-                    favorito === id ? <button onClick={ (e) => quitarFavorito(e)}>Quitar de favorito</button> : 
-                    <button onClick={(e) => agregarFavoritos(e)}>Agregar a favoritos</button>
-             }
+                         <button onClick={(e) => manejarClick(e)}>{estatus}</button>
         </div>
         <div className="informacion_boton_comprar">
             <button>Comprar</button>

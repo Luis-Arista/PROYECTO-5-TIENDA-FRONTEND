@@ -11,7 +11,7 @@ const Articulos = ( { parametro } ) => {
     const [ articulos , setArticulos ] = useState([])
 
     const cargar = async () => {
-        const url = `${env.URL_API}/articulos/lista`
+        const url = `${env.REACT_APP_URL_API}/articulos/lista`
         const respuesta = await axios.post(url , parametro)
         setArticulos( respuesta.data)
     }

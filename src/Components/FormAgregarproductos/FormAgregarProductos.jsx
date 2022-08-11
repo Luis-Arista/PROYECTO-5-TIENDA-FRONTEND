@@ -19,7 +19,7 @@ const FormAgregarProductos = () => {
    const Agregar = async( e ) => {
      e.preventDefault()
     
-    let url = `${env.URL_API}/articulos`
+    let url = `${env.REACT_APP_URL_API}/articulos`
     let db = {
         articulo : articulo.toLocaleLowerCase(),
         precio : precio,

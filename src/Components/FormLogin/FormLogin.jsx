@@ -15,9 +15,9 @@ const FormLogin = () => {
   const [ contraseña , setContraseña ] = useState('')
 
   const logearse = async() => {
-    let url = `${env.URL_API}/login`
+    let url = `${env.REACT_APP_URL_API}/login`
     
-    let urlDos = `${env.URL_API}/usuarios/usuario/info`
+    let urlDos = `${env.REACT_APP_URL_API}/usuarios/usuario/info`
     const db = {
       email,
       contraseña
