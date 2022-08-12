@@ -1,8 +1,5 @@
 
 .card_botones{
-    display: flex;
-    justify-content: flex-end;
-    background-color: rgba(255, 255, 255, 0.697);
     position: absolute;
     right: 15px;
     top: 15px;
@@ -10,12 +7,14 @@
 }
 
 .boton_favoritos{
+    background-color: rgba(255, 255, 255, 0.91);
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 5px;
-    border: 0;
-    background-color: transparent;
+    padding: 6px;
+    border: none;
+    cursor: pointer;
+
 }
 
 .corazon_favoritos_vacio , .corazon_favoritos_lleno{
@@ -25,6 +24,4 @@
 
 .corazon_favoritos_lleno{
     fill: blue;
-    transform: scale(0);
-    transition: 1s all;
 }

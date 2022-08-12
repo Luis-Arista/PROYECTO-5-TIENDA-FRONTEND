@@ -7,12 +7,18 @@
     transform: translateY(-10px);
 }
 
+.card:hover .boton_favoritos_productos {
+    opacity: 1;
+
+}
+
 .contenedor_card{
     width: 245px;
     background-color: #fff;
     margin: 12px;
     cursor: pointer;
 }
+
 
 
 .card_imagen{
@@ -73,4 +79,9 @@
     font-weight: bolder;
 }
 
+
+.boton_favoritos_productos{
+    opacity: 1;
+    transition: 0.5s all;
+}
 

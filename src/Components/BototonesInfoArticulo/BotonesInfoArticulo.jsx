@@ -1,8 +1,7 @@
 import React , { useContext , useEffect , useState } from 'react'
 import { UserContext } from '../../Context/Usuario/UserContext'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate , Link } from 'react-router-dom'
 import './BotonesInfoArticulo.css'
-import env from 'react-dotenv'
 import axios from 'axios'
 
 const BotonesInfoArticulo = ( { articulo , id } ) => {
@@ -67,6 +66,8 @@ const BotonesInfoArticulo = ( { articulo , id } ) => {
         navigate('/productos')
     }
 
+    
+
 
   return (
     <div className='informacion_articulos_botones'>
@@ -78,7 +79,7 @@ const BotonesInfoArticulo = ( { articulo , id } ) => {
                 <button onClick={(e) => eliminarArticulo(e)}>Eliminar</button>
             </div>
             <div className="informacion_boton_editar">
-                <button>Editar</button>
+                <Link className='boton_editar' to={`/agregar/productos/${id}`}>Editar</Link>
             </div>
             </>
         }

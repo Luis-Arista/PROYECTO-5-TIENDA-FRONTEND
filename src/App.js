@@ -26,6 +26,7 @@ function App() {
             <Route path='/registrar' element = { <Registrar /> } />
             <Route path='/perfil' element = { <MiPerfil /> } />
             <Route path='/agregar/productos' element = { <AgregarProductos /> } />
+            <Route path='/agregar/productos/:id' element = { <AgregarProductos /> } />
             <Route path='/favoritos' element = { <Favoritos /> } />
             <Route path='/productos' element = { <Productos /> } />
             <Route path='productos/:id' element = { <InforArticulo /> } />

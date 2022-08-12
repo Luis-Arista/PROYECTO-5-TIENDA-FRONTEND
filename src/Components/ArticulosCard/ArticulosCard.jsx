@@ -37,7 +37,9 @@ const ArticulosCard = ( { articulo } ) => {
             }
         </div>
       </div>
-      <CorazonFavorito articulo={articulo} id ={articulo._id} />
+      <div className="boton_favoritos_productos">
+        <CorazonFavorito articulo={articulo} id ={articulo._id} />
+      </div>
     </div>
   )
 }

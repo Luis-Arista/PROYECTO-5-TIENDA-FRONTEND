@@ -14,7 +14,8 @@ const FormLogin = () => {
   const [ email , setEmail ] = useState('')
   const [ contraseña , setContraseña ] = useState('')
 
-  const logearse = async() => {
+  const logearse = async(e) => {
+    e.preventDefault()
     let url = `https://proyecto-5-tienda.herokuapp.com/api/v1/login`
     
     let urlDos = `https://proyecto-5-tienda.herokuapp.com/api/v1/usuarios/usuario/info`
@@ -27,7 +28,8 @@ const FormLogin = () => {
     .then( (res) =>{
        return axios.get( urlDos , {
          headers:{
-           'autorizacion': `Bearer ${res.data.token}`
+           'autorizacion': `Bearer ${res.data.token}`,
+           'Access-Control-Allow-Origin' : '*'
          }
        })
        .then( (res) => {
@@ -42,7 +44,7 @@ const FormLogin = () => {
 
   return (
     <div className="Conteendor_formulario_login">
-        <form action="#">
+        <form onSubmit={(e) => logearse(e)}>
             <div className="login_email">
               <input value={email} onChange={(e) => setEmail(e.target.value.toLowerCase())} type="email" />
               <label style={ email !== '' ? { top:'-10px', padding: '1px', fontSize: '12px', fontWeight: 'bolder' , backgroundColor: '#fff' , transition :'all, 0.2s' } : {transition :'all, 0.2s'}} >Email</label>
@@ -52,7 +54,7 @@ const FormLogin = () => {
               <label style={ contraseña !== '' ? { top:'-10px', padding: '1px', fontSize: '12px', fontWeight: 'bolder' , backgroundColor: '#fff' , transition :'all, 0.2s' } : {transition :'all, 0.2s'}} >Contraseña</label>
             </div>
             <div className="login_boton">
-                <Link to="/login"><button onClick={() => logearse()}>ingresar</button></Link>
+                <input type="submit" />
                 <Link to="/registrar"><button>Registrarse</button></Link>
             </div>
         </form>

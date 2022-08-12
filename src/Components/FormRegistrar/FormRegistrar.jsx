@@ -17,8 +17,8 @@ const FormRegistrar = () => {
   const [ confirmarContraseña , setConfirmarContraseña ] = useState('')
   const [ coinside , setCoinside ] = useState(true)
 
-  const registrarse = async() => {
-
+  const registrarse = async(e) => {
+    e.preventDefault()
     if ( coinside && contraseña !== '' ) {
         let url = `https://proyecto-5-tienda.herokuapp.com/api/v1/registrar`
         let urlDos = `https://proyecto-5-tienda.herokuapp.com/api/v1/usuarios/usuario/info`
@@ -60,7 +60,7 @@ const FormRegistrar = () => {
 
   return (
     <div className="Conteendor_formulario_registrar">
-        <form action="#">
+        <form onSubmit={(e) => registrarse(e)}>
             <div className="registrar_nombre">
               <input value={nombre} onChange={(e) => setNombre(e.target.value.toLowerCase())} type="text" />
               <label style={ nombre !== '' ? { top:'-10px', padding: '1px', fontSize: '12px', fontWeight: 'bolder' , backgroundColor: '#fff' , transition :'all, 0.2s' } : {transition :'all, 0.2s'}} >Nombre</label>
@@ -90,7 +90,7 @@ const FormRegistrar = () => {
             </div>
             
             <div className="registrar_boton">
-                <Link to="/registrar"><button onClick={() => registrarse()}>Registrarse</button></Link>
+                <input type="submit" />
             </div>
         </form>
     </div>

@@ -17,7 +17,7 @@
     width: 90%;
 }
 
-.registrar_articulo , .registrar_precio , .registrar_precio_descuento , .registrar_descripcion , .registrar_Categoria , .registrar_Oferta , .agregar_categoria_nueva , .registrar_imagen_body{
+.registrar_articulo , .registrar_precio , .registrar_precio_descuento , .registrar_descripcion , .registrar_Categoria , .registrar_Oferta , .agregar_categoria_nueva , .imagen_subir_archivo {
     position: relative;
     display: flex;
     align-items: center;
@@ -26,14 +26,14 @@
 }
 
 
-.registrar_articulo input , .registrar_precio input , .registrar_precio_descuento input , .registrar_descripcion textarea ,  .registrar_Oferta input  {
+.registrar_articulo input , .registrar_precio input , .registrar_precio_descuento input , .registrar_descripcion textarea ,  .registrar_Oferta input , .imagen_subir_archivo input {
     padding: 5px;;
     outline: none;
     width: 100%;
     margin: 0 auto;
 }
 
-.registrar_articulo label , .registrar_precio label , .registrar_precio_descuento label ,   .registrar_Categoria label , .registrar_descripcion label , .agregar_categoria_nueva label{
+.registrar_articulo label , .registrar_precio label , .registrar_precio_descuento label ,   .registrar_Categoria label , .registrar_descripcion label , .agregar_categoria_nueva label , .imagen_subir_archivo label{
     position: absolute;
     padding: 5px;
     top: 0;
@@ -42,7 +42,7 @@
 }
 
 
-.registrar_articulo input:focus ~ label , .registrar_precio input:focus ~ label , .registrar_precio_descuento input:focus ~ label ,  .registrar_descripcion textarea:focus ~ label , .agregar_categoria_nueva input:focus ~ label {
+.registrar_articulo input:focus ~ label , .registrar_precio input:focus ~ label , .registrar_precio_descuento input:focus ~ label ,  .registrar_descripcion textarea:focus ~ label , .agregar_categoria_nueva input:focus ~ label , .imagen_subir_archivo input:focus ~ label{
      top: -10px;
      background-color: #fff;
      padding: 1px;
@@ -71,6 +71,9 @@ select {
 
 .registrar_imagen{
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     width: 100%;
     margin: 10px 0;
 }

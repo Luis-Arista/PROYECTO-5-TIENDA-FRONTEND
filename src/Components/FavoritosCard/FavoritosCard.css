@@ -9,7 +9,9 @@
     align-items: center;
 }
 
-
+.favoritos_card:hover .boton_favoritos_favoritos  {
+    opacity: 1;
+}
 
 .favoritos_img{
     width: 40%;
@@ -21,7 +23,12 @@
 }
 
 .favoritos_img img {
-    width: 100%;
+    width: 50%;
+}
+
+.boton_favoritos_favoritos{
+    opacity: 0;
+    transition: 0.5s ease;
 }
 
 .favoritos_info{

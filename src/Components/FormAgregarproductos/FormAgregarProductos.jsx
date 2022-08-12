@@ -2,13 +2,13 @@ import React , { useState , useEffect , useContext } from 'react'
 import { EstadoContext } from '../../Context/Usuario/EstadoContext'
 import './FormAgregarProductos.css'
 import axios from 'axios'
-import env from 'react-dotenv'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate , useParams } from 'react-router-dom'
 
 
 const FormAgregarProductos = () => {
 
   let navigate = useNavigate()
+  let {id} = useParams()
 
   const { setCargando } = useContext( EstadoContext )
 
@@ -16,7 +16,8 @@ const FormAgregarProductos = () => {
   const [ listaCategoria , setListaCategoria ] = useState([])
   const [ estatusNuevaCategoria , setEstatusNuevaCategoria] = useState(false)
   const [ nuevaCategoria , setNuevaCategoria] = useState('')
-
+  const[ articuloAEditar , setArticuloAEditar] = useState()
+  const[ flag , setFlag ] = useState(false)
   const [ articulo , setArticulo ] = useState('')
   const [ precio , setPrecio ] = useState('')
   const [ precioConDescuento , setPrecioConDescuento ] = useState(0)
@@ -30,17 +31,40 @@ const FormAgregarProductos = () => {
     const url = `https://proyecto-5-tienda.herokuapp.com/api/v1/categoria/buscar`
     const respuesta = await axios.post( url , {})
     setListaCategoria(respuesta.data)
+
+    if(id){
+      const url = `https://proyecto-5-tienda.herokuapp.com/api/v1/articulos/lista`
+      const respuesta = await axios.post(url , {_id: id})
+      const data = respuesta.data
+      setArticuloAEditar(data[0])
+      setFlag(true)
+    }
+
+  }
+
+  const extablecerCampos = () => {
+      setArticulo(articuloAEditar.articulo)
+      setPrecio(articuloAEditar.precio)
+      setPrecioConDescuento(articuloAEditar.precio_con_descuento)
+      setDescripcion(articuloAEditar.descripcion)
+      setOfertas(articuloAEditar.ofertas)
+      setCategoria(articuloAEditar.categorias)
+      setImagen(articuloAEditar.imagen)
   }
 
   useEffect(() => {
     cargar()
-  },[])
+    if(flag){
+      extablecerCampos()
+    }
+  },[articuloAEditar])
 
    const Agregar = async( e ) => {
      e.preventDefault()
     
     let url = `https://proyecto-5-tienda.herokuapp.com/api/v1/articulos`
     let db = {
+        imagen:imagen,
         articulo : articulo.toLocaleLowerCase(),
         precio : precio,
         precio_con_descuento : precioConDescuento,
@@ -49,7 +73,10 @@ const FormAgregarProductos = () => {
         ofertas
 
     }
-    await axios.post( url, db)
+
+  
+
+    await axios.post( url, db )
     .then((res) =>{
       navigate('/productos')
     })
@@ -77,30 +104,18 @@ const FormAgregarProductos = () => {
     setCargando(true)
   }
 
-  const agregarImagenes = (e) => {
-    setImagen(e.target.files[0])
-    console.log(imagen);
+  const limpiarImagen = (e) => {
+      e.preventDefault()
+      setImagen('')
   }
 
-/*   const agregarImagen = (e) => {
-    let File = e.target.files[0]
-    const tamañoMB = File.size < 50 * 1024 *1024
-    if( tamañoMB ){
-      const reader = new FileReader()
-      reader.readAsDataURL(File)
-      reader.onloadend = () => {
-      setImagen(reader.result)
-      }
-    }else{
-      alert('La imagen es muy grande intente con otra')
 
-    }
-    
-  } */
+
+  //aqui empezamos
 
   return (
     <div className="Conteendor_agregar_producto">
-        <form action="#">
+        <form  onSubmit={Agregar} encType='multipart/form-data'>
             <div className="registrar_articulo">
               <input value={articulo} onChange={(e) => setArticulo(e.target.value)} type="text" />
               <label style={ articulo !== '' ? { top:'-10px', padding: '1px', fontSize: '12px', fontWeight: 'bolder' , backgroundColor: '#fff' , transition :'all, 0.2s' } : {transition :'all, 0.2s'}} >Articulo</label>
@@ -148,20 +163,17 @@ const FormAgregarProductos = () => {
                     </select>
                 </div>
                  <div className="registrar_imagen">
-                  <div className="registrar_imagen_titulo">
-                    <p>subir foto del Articulo</p>
-                  </div>
-                  <div className="registrar_imagen_body">
-                    <div className="imagen">
-                      <img src='' alt="foto" />
-                    </div>
                     <div className="imagen_subir_archivo">
-                      <input type="file" onChange={(e) => agregarImagenes(e)} accept="image/png , image/jpeg , image/jpg "  />
+                      <input value={imagen} onChange={(e) => setImagen(e.target.value)} type="text" />
+                      <button onClick={(e) => limpiarImagen(e)}>Limpiar</button>
+                      <label style={ imagen !== '' ? { top:'-10px', padding: '1px', fontSize: '12px', fontWeight: 'bolder' , backgroundColor: '#fff' , transition :'all, 0.2s' } : {transition :'all, 0.2s'}} >URL de la imagen</label>
                     </div>
-                  </div>
+                    <div className="imagen">
+                      <img src={imagen} alt="foto" />
+                    </div>
                 </div> 
                 <div className="registrar_boton">
-                    <button onClick={ (e) => Agregar(e)}>Agregar articulo</button> 
+                   <input type="submit" />
                 </div>
               </>
             }

@@ -1,7 +1,6 @@
 import React , { useState , useEffect} from 'react'
 import './Articulos.css'
 import axios from 'axios'
-import env from 'react-dotenv'
 import ArticulosCard from '../ArticulosCard/ArticulosCard'
 
 

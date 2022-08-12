@@ -20,8 +20,20 @@
     background-color: red;
 }
 
-.informacion_boton_editar button {
+.boton_editar {
     background-color: rgb(0, 177, 103);
+    padding: 7px;
+    width: 235px;
+    border: none;
+    font-weight: bold;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
 }
 
 .informacion_boton_favoritos button{

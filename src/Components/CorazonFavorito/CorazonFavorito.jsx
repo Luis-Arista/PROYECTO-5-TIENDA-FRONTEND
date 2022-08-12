@@ -2,7 +2,6 @@ import React , { useContext , useState , useEffect } from 'react'
 import { UserContext } from '../../Context/Usuario/UserContext'
 import {BsHeartFill , BsHeart} from 'react-icons/bs'
 import './CorazonFavorito.css'
-import env from 'react-dotenv'
 import axios from 'axios'
 
 const CorazonFavorito = ( { pagina , articulo , id} ) => {
@@ -14,10 +13,10 @@ const CorazonFavorito = ( { pagina , articulo , id} ) => {
       if( usuario === 'ninguno'){
         setEstatus('sin usuario')
       }else {
-        let favorito = usuario.favoritos.find( ( favorito ) => {
+        let ArticuloFavorito = usuario.favoritos.find( ( favorito ) => {
           return favorito._id === id
-        })
-        if(!favorito){
+        })       
+        if(!ArticuloFavorito){
           setEstatus('no')
         }else {
           setEstatus('si')
@@ -27,7 +26,7 @@ const CorazonFavorito = ( { pagina , articulo , id} ) => {
 
    useEffect( () => {
     cargar()
-   },[])
+   },[id])
 
  
 
@@ -65,8 +64,9 @@ const CorazonFavorito = ( { pagina , articulo , id} ) => {
         <button  className='boton_favoritos' >
             {
              estatus !== 'sin usuario' ? 
-             //me quede intentando hacer la animacion del corazon
-              estatus === 'si' ? <BsHeartFill onClick={() => quitarFav()}  style={  { transform: 'scale(1)' , transition: '1s all' }} className='corazon_favoritos_lleno'/> : <BsHeart onClick={() => agregarFav()}  className='corazon_favoritos_vacio'/> :
+                estatus === 'si' ? <BsHeartFill onClick={() => quitarFav()} className='corazon_favoritos_lleno'/> 
+                : <BsHeart onClick={() => agregarFav()}  className='corazon_favoritos_vacio'/>
+              :
               ''
            } 
         </button>

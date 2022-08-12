@@ -20,9 +20,9 @@ const FavoritosCard = ( { articuloFavorito } ) => {
         <div onClick={(e) => manejarClick()} className="favoritos_img">
             <img src={articuloFavorito.imagen} alt="" />
         </div>
-          <div onClick={() => prueba()} className="boton_favoritos">
+        <div onClick={() => prueba()} className="boton_favoritos_favoritos">
               <CorazonFavorito pagina={'favoritosCard'} articulo={articuloFavorito} id ={articuloFavorito._id} /> 
-          </div>      
+        </div>      
         <div onClick={(e) => manejarClick()} className="favoritos_info">
             <div className="favoritos_header">
                 {
