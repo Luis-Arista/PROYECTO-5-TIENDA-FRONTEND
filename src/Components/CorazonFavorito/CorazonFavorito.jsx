@@ -32,7 +32,7 @@ const CorazonFavorito = ( { pagina , articulo , id} ) => {
  
 
    const agregarFav = () => {
-      const url = `${env.REACT_APP_URL_API}/usuarios/${usuario.id}`
+      const url = `https://proyecto-5-tienda.herokuapp.com/api/v1/usuarios/${usuario.id}`
       usuario.favoritos.push(articulo)
       const favoritos ={
         favoritos: usuario.favoritos
@@ -42,7 +42,7 @@ const CorazonFavorito = ( { pagina , articulo , id} ) => {
     }
 
     const quitarFav = () => {
-      const url = `${env.REACT_APP_URL_API}/usuarios/${usuario.id}`
+      const url = `https://proyecto-5-tienda.herokuapp.com/api/v1/usuarios/${usuario.id}`
       usuario.favoritos.forEach( ( favorito , i) => {
         if( favorito._id === id){
         usuario.favoritos.splice( i , 1)

@@ -38,7 +38,7 @@ const BotonesInfoArticulo = ( { articulo , id } ) => {
         if ( estatus === 'logeate para agregar a favoritos') {
             navigate('/login' , { state: { pagina : `/productos/${id}`}})
         }else {
-            const url = `${env.REACT_APP_URL_API}/usuarios/${usuario.id}`
+            const url = `https://proyecto-5-tienda.herokuapp.com/api/v1/usuarios/${usuario.id}`
             if( estatus === 'Quitar de favoritos'){
                 usuario.favoritos.forEach( ( favorito , i) => {
                     if( favorito._id === id){
@@ -61,6 +61,12 @@ const BotonesInfoArticulo = ( { articulo , id } ) => {
         } 
     }
 
+    const eliminarArticulo = async () => {
+        const url = `https://proyecto-5-tienda.herokuapp.com/api/v1/articulos/${id}`
+        await axios.delete( url )
+        navigate('/productos')
+    }
+
 
   return (
     <div className='informacion_articulos_botones'>
@@ -69,7 +75,7 @@ const BotonesInfoArticulo = ( { articulo , id } ) => {
             '':
             <>
             <div className="informacion_boton_eliminar">
-                <button>Eliminar</button>
+                <button onClick={(e) => eliminarArticulo(e)}>Eliminar</button>
             </div>
             <div className="informacion_boton_editar">
                 <button>Editar</button>

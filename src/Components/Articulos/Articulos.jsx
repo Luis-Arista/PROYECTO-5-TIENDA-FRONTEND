@@ -11,14 +11,14 @@ const Articulos = ( { parametro } ) => {
     const [ articulos , setArticulos ] = useState([])
 
     const cargar = async () => {
-        const url = `${env.REACT_APP_URL_API}/articulos/lista`
+        const url = `https://proyecto-5-tienda.herokuapp.com/api/v1/articulos/lista`
         const respuesta = await axios.post(url , parametro)
         setArticulos( respuesta.data)
     }
 
     useEffect( () => {
         cargar()
-    },[])
+    },[parametro])
     
 
   return (

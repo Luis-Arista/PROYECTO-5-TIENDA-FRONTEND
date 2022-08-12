@@ -15,9 +15,9 @@ const FormLogin = () => {
   const [ contraseña , setContraseña ] = useState('')
 
   const logearse = async() => {
-    let url = `${env.REACT_APP_URL_API}/login`
+    let url = `https://proyecto-5-tienda.herokuapp.com/api/v1/login`
     
-    let urlDos = `${env.REACT_APP_URL_API}/usuarios/usuario/info`
+    let urlDos = `https://proyecto-5-tienda.herokuapp.com/api/v1/usuarios/usuario/info`
     const db = {
       email,
       contraseña

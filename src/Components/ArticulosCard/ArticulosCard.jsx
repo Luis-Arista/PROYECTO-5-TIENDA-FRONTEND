@@ -7,7 +7,7 @@ const ArticulosCard = ( { articulo } ) => {
 
   const navigate = useNavigate()
 
- 
+
 
   const informacionArticulos = () => {
     navigate(`${articulo._id}`)

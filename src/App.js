@@ -12,24 +12,27 @@ import Favoritos from './Pages/Favoritos/Favoritos';
 import Productos from './Pages/Productos/Productos';
 import AgregarProductos from './Pages/AgregarProductos/AgregarProductos';
 import InforArticulo from './Pages/InforArticulo/InforArticulo';
+import { EstadoProvider } from './Context/Usuario/EstadoProvider';
 
 function App() {
   return (
     <BrowserRouter>
       <UserProvider>
-        <Navbar />
-        <Routes>
-          <Route path='/' element = { <Home /> } />
-          <Route path='/login' element = { <Login /> } />
-          <Route path='/registrar' element = { <Registrar /> } />
-          <Route path='/perfil' element = { <MiPerfil /> } />
-          <Route path='/agregar/productos' element = { <AgregarProductos /> } />
-          <Route path='/favoritos' element = { <Favoritos /> } />
-          <Route path='/productos' element = { <Productos /> } />
-          <Route path='productos/:id' element = { <InforArticulo /> } />
-          <Route path='*' element = { <Error404 /> } />
-        </Routes>
-        <Footer />
+        <EstadoProvider>
+          <Navbar />
+          <Routes>
+            <Route path='/' element = { <Home /> } />
+            <Route path='/login' element = { <Login /> } />
+            <Route path='/registrar' element = { <Registrar /> } />
+            <Route path='/perfil' element = { <MiPerfil /> } />
+            <Route path='/agregar/productos' element = { <AgregarProductos /> } />
+            <Route path='/favoritos' element = { <Favoritos /> } />
+            <Route path='/productos' element = { <Productos /> } />
+            <Route path='productos/:id' element = { <InforArticulo /> } />
+            <Route path='*' element = { <Error404 /> } />
+          </Routes>
+          <Footer />
+        </EstadoProvider>
       </UserProvider>
     </BrowserRouter>
   );
