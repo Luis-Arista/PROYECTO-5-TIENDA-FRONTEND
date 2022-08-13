@@ -2,9 +2,10 @@ import React , { useContext , useEffect , useState } from 'react'
 import { UserContext } from '../../Context/Usuario/UserContext'
 import { useNavigate , Link } from 'react-router-dom'
 import './BotonesInfoArticulo.css'
+import CheckoutPage from '../CheckoutPages/CheckoutPages'
 import axios from 'axios'
 
-const BotonesInfoArticulo = ( { articulo , id } ) => {
+const BotonesInfoArticulo = ( { setCompra, articulo , id } ) => {
 
     let navigate = useNavigate()
 
@@ -14,7 +15,7 @@ const BotonesInfoArticulo = ( { articulo , id } ) => {
     
     const cargar = () => {
        if ( usuario === 'ninguno'){
-        setEstatus( 'logeate para agregar a favoritos' )
+        setEstatus( 'logeate para comprar' )
        } else {
             const idFavorito = usuario.favoritos.find( ( favorito ) => {
                 return favorito._id === id
@@ -34,7 +35,7 @@ const BotonesInfoArticulo = ( { articulo , id } ) => {
 
     const manejarClick = (e) => {
         e.preventDefault()
-        if ( estatus === 'logeate para agregar a favoritos') {
+        if ( estatus === 'logeate para comprar') {
             navigate('/login' , { state: { pagina : `/productos/${id}`}})
         }else {
             const url = `https://proyecto-5-tienda.herokuapp.com/api/v1/usuarios/${usuario.id}`
@@ -84,11 +85,14 @@ const BotonesInfoArticulo = ( { articulo , id } ) => {
             </>
         }
         <div className="informacion_boton_favoritos">
-                         <button onClick={(e) => manejarClick(e)}>{estatus}</button>
+                <button onClick={(e) => manejarClick(e)}>{estatus}</button>
         </div>
-        <div className="informacion_boton_comprar">
-            <button>Comprar</button>
-        </div>
+        {
+            usuario === 'ninguno' ? '' : 
+            <div className="informacion_boton_comprar">
+                <CheckoutPage setCompra={setCompra} amount={ articulo.ofertas === true ? articulo.precio_con_descuento : articulo.precio} />
+            </div>
+        }
     </div>
   )
 }

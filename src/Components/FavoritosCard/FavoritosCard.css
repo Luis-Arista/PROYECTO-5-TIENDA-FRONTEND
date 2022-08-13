@@ -27,7 +27,7 @@
 }
 
 .boton_favoritos_favoritos{
-    opacity: 0;
+    opacity: 1;
     transition: 0.5s ease;
 }
 
@@ -63,29 +63,6 @@
     text-align: center;
     margin: 0;
     font-size: 20px;
-}
-
-.card_precios_favoritos{
-    padding: 5px 0;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-direction: column;
-    padding-bottom: 10px;
-}
-
-.precio_viejo_favoritos{
-    margin: 0;
-    color: rgb(106, 106, 106);
-    text-decoration: line-through;
-    font-weight: bolder;
-}
-
-.precio_favoritos{
-    margin: 0;
-    font-size: 20px;
-    font-weight: bolder;
 }
 
 

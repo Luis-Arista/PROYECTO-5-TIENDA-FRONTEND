@@ -85,6 +85,7 @@ select {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 .imagen img {
@@ -109,3 +110,12 @@ select {
     cursor: pointer;
 }
  
+
+@media ( max-width : 600px){
+
+    .imagen{
+        width: 90%;
+        margin: 0 auto;
+     }
+
+}

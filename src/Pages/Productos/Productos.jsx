@@ -5,6 +5,10 @@ import { useLocation } from 'react-router-dom'
 const Productos = () => {
 
   let parametro = useLocation().state
+  
+  if ( parametro === null){
+    parametro = {busqueda: {} , titulo: 'Nuestros productos'}
+  }
 
   return (
     <main>

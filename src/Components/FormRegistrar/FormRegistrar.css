@@ -59,7 +59,7 @@
     align-items: center;
 }
 
-.registrar_boton button{
+.registrar_boton input{
     padding: 5px 10px;
     border: none;
     font-weight: bold;
@@ -82,4 +82,15 @@
     font-weight: bolder;
     color: red;
     font-size: 12px;
+}
+
+@media (max-width: 821px){
+
+    
+    .Conteendor_formulario_registrar{
+        min-height: 71vh;
+    
+    }
+    
+
 }

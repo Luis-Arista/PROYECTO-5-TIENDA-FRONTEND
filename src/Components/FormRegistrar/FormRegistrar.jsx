@@ -1,8 +1,7 @@
 import React , { useState , useContext } from 'react'
 import './FormRegistrar.css'
-import { Link , useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import env from 'react-dotenv'
 import { UserContext } from '../../Context/Usuario/UserContext'
 
 const FormRegistrar = () => {

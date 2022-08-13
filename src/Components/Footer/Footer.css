@@ -4,6 +4,7 @@ footer{
 
 .contenedor_footer{
     max-width: 93rem;
+    margin: 0 auto;
 }
 
 .redes_sociales{

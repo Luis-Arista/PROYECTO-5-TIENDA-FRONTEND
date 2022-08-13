@@ -13,18 +13,22 @@
 
 .informacion_articulo_imagen{
     border: 1px solid black;
-    width: 100%;
+    width: 90%;
     height: 500px;
     overflow: hidden;
 
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0 auto;
+
 }
 
 .informacion_articulo_imagen img{
     width: 100%;
 }
+
+
 
 .informacion_articulo_mensaje_oferta{
     background-color: blue;
@@ -32,18 +36,81 @@
     color: white;
     border-radius: 5px;
     width: 90%;
+    margin: 10px auto;
+
+    
+}
+
+.informacion_articulo_titulo h2{
+    margin: 10px 5px;
 }
 
 .informacion_articulo_precio{
-    margin: 0;
     font-size: 20px;
     font-weight: bold;
+    margin: 0 5px;
+
 }
 
 .informacion_articulo_precio_anterior{
-    margin: 0;
+    margin: 0 5px;
     text-decoration: line-through;
     color: rgb(106, 106, 106);
     font-weight: bold;
     font-size: 15px;
+}
+
+.informacion_articulo_descripcion{
+    margin: 5px;
+}
+
+.botones_infp_articulos{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.mensaje_compra{
+    max-width: 93rem;
+    height: 53vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@media ( max-width : 600px){
+    .informacion_articulo_contenedor{
+         
+        flex-direction: column;
+         
+    
+    }
+
+    .informacion_articulo_articulo{
+        width: 100%;
+    }
+    
+    .informacion_articulo_imagen{
+        height: 350px;
+    
+    }
+    
+   
+    
+    
+    
+   
+    
+    .botones_infp_articulos{
+        width: 100%;
+    }
+    
+    .mensaje_compra{
+        max-width: 93rem;
+        height: 53vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }

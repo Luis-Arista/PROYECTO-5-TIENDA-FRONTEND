@@ -38,6 +38,7 @@ const FormAgregarProductos = () => {
       const data = respuesta.data
       setArticuloAEditar(data[0])
       setFlag(true)
+
     }
 
   }
@@ -57,32 +58,28 @@ const FormAgregarProductos = () => {
     if(flag){
       extablecerCampos()
     }
-  },[articuloAEditar])
+  },[flag])
 
    const Agregar = async( e ) => {
      e.preventDefault()
     
-    let url = `https://proyecto-5-tienda.herokuapp.com/api/v1/articulos`
-    let db = {
-        imagen:imagen,
-        articulo : articulo.toLocaleLowerCase(),
-        precio : precio,
-        precio_con_descuento : precioConDescuento,
-        descripcion,
-        categorias : categoria,
-        ofertas
+      let url = `https://proyecto-5-tienda.herokuapp.com/api/v1/articulos`
+      let db = {
+          imagen:imagen,
+          articulo : articulo.toLocaleLowerCase(),
+          precio : precio,
+          precio_con_descuento : precioConDescuento,
+          descripcion,
+          categorias : categoria,
+          ofertas
+
+      }
+      await axios.post( url, db )
+      .then(() =>{
+        navigate('/productos')
+      })
 
     }
-
-  
-
-    await axios.post( url, db )
-    .then((res) =>{
-      navigate('/productos')
-    })
-    .catch((err) => alert('Hubo un error al cargar la imagen intenta con otra'))
-
-  }
 
   const clickNuevaCategoria = (e) => {
     e.preventDefault()
@@ -109,13 +106,33 @@ const FormAgregarProductos = () => {
       setImagen('')
   }
 
+  
+  const Editar = async(e) => {
+    e.preventDefault()
+    let url = `https://proyecto-5-tienda.herokuapp.com/api/v1/articulos/${id}`
+    let db = {
+        imagen:imagen,
+        articulo : articulo.toLocaleLowerCase(),
+        precio : precio,
+        precio_con_descuento : precioConDescuento,
+        descripcion,
+        categorias : categoria,
+        ofertas
+
+    }
+    await axios.put( url, db )
+    .then(() =>{
+      setFlag(false)
+      navigate('/productos')
+    })
+  }
 
 
   //aqui empezamos
 
   return (
     <div className="Conteendor_agregar_producto">
-        <form  onSubmit={Agregar} encType='multipart/form-data'>
+        <form  onSubmit={ flag === false ? Agregar : Editar} encType='multipart/form-data'>
             <div className="registrar_articulo">
               <input value={articulo} onChange={(e) => setArticulo(e.target.value)} type="text" />
               <label style={ articulo !== '' ? { top:'-10px', padding: '1px', fontSize: '12px', fontWeight: 'bolder' , backgroundColor: '#fff' , transition :'all, 0.2s' } : {transition :'all, 0.2s'}} >Articulo</label>

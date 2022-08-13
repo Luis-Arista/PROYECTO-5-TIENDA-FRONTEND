@@ -39,3 +39,7 @@
 .informacion_boton_favoritos button{
     background-color: blue;
 }
+
+.informacion_boton_comprar{
+    width: 100%;
+}

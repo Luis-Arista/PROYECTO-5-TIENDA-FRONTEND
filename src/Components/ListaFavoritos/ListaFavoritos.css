@@ -9,3 +9,14 @@
     background-color: rgb(234, 234, 234);
     padding: 15px;
 }
+
+@media (max-width: 821px){
+
+    
+    .lista_favoritos_container{
+        min-height: 71vh;
+    
+    }
+    
+
+}

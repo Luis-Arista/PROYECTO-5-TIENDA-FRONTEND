@@ -1,5 +1,5 @@
 .Conteendor_formulario_login{
-    height: 540px;
+    height: 600px;
     background-color: rgb(234, 234, 234);
     display: flex;
     justify-content: center;
@@ -89,10 +89,22 @@ form{
     align-items: center;
 }
 
-.login_boton button{
+.login_boton button , .login_boton input{
     padding: 5px 10px;
     border: none;
     font-weight: bold;
     background-color: pink;
     cursor: pointer;
+}
+
+
+@media (max-width: 821px){
+
+    
+    .Conteendor_formulario_login{
+        min-height: 71vh;
+    
+    }
+    
+
 }

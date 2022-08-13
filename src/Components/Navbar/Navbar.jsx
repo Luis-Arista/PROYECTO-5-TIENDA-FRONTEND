@@ -3,10 +3,9 @@ import { UserContext } from '../../Context/Usuario/UserContext'
 import { EstadoContext } from '../../Context/Usuario/EstadoContext'
 import './Navbar.css'
 import { Link , useNavigate} from 'react-router-dom'
-import Buscador from '../Buscador/Buscador'
 import Logo from '../../assets/img/Logo.jpeg'
-import env from 'react-dotenv'
 import axios from 'axios'
+import { BsPersonCircle , BsHeartFill } from "react-icons/bs";
 
 
 const Navbar = () => {
@@ -14,7 +13,7 @@ const Navbar = () => {
     let navigate = useNavigate()
 
     const[ flag , setFlag ] = useState(false)
-    const { usuario , setUsuario } = useContext( UserContext )
+    const { usuario } = useContext( UserContext )
     const { cargando , setCargando } = useContext( EstadoContext )
     const [ categorias , setCategorias ] = useState([])
 
@@ -31,7 +30,20 @@ const Navbar = () => {
 
     const mostrarArticulos = (e , busqueda) => {
         e.preventDefault()
-        navigate( '/productos' , { state: busqueda })
+
+        let titulo 
+
+        if ( busqueda.ofertas ) {
+            titulo = 'Productos con Descuentos'
+        } else if (busqueda.categorias) {
+            titulo = busqueda.categorias
+        } else {
+            titulo = 'Nuestros productos'
+        }
+
+
+        navigate( '/productos' , { state: {busqueda , titulo} })
+        setFlag(false)
     }
     
 
@@ -44,19 +56,16 @@ const Navbar = () => {
                         <img className='Logo' src={Logo} alt="Logo" />
                     </div>
                     <div className="navbar_opciones">
-                        <Buscador/>
                         <div className="navbar_session">
                             {
                                 usuario === 'ninguno' ?
                                 <div>
-                                    <Link to='/login'>Iniciar Session</Link> |
-                                    <Link to='/registrar'>Registrarse</Link>
+                                    <Link className='menu_ususario_boton' to='/login'>Iniciar sesión</Link>
+                                    <Link className='menu_ususario_boton' to='/registrar'>Registrarse</Link>
                                 </div> :
                                 <div>
-                                    <Link to="/perfil">Perfil</Link> |
-                                    <Link to="/Carrito">Carrito</Link>
-                                    <Link to="/Favoritos">Favoritos</Link>
-                                    <Link to="/"><button onClick={()=>setUsuario('ninguno') }>cerrar session</button></Link>
+                                    <Link to="/perfil"><BsPersonCircle  className='menu_ususario menu_usuario_perfil'/></Link>
+                                    <Link to="/Favoritos"><BsHeartFill className='menu_ususario menu_usuario_corazon'/></Link>
                                 </div>
                             }
                         </div>
@@ -69,10 +78,9 @@ const Navbar = () => {
                     </div>
                     {
                         usuario !== 'ninguno' && usuario.role === 'Administrador' ?
-                            <div className="agregar_producto">
-                                 <Link to="/agregar/productos">Agregar Producto</Link>
+                            <div>
+                                 <Link  className="agregar_producto" to="/agregar/productos">Agregar Producto</Link>
                             </div> : ''
-                            
                     }
                 </div>
                 

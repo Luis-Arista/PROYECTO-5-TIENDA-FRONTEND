@@ -2,7 +2,6 @@ import React , { useState , useContext } from 'react'
 import './FormLogin.css'
 import { Link , useNavigate , useLocation } from 'react-router-dom'
 import axios from 'axios'
-import env from 'react-dotenv'
 import { UserContext } from '../../Context/Usuario/UserContext'
 
 const FormLogin = () => {
@@ -38,7 +37,7 @@ const FormLogin = () => {
        })
     })
     .catch( (error) => {
-      console.log(error.response.data.mensaje);
+      alert(error.response.data.mensaje);
     })
   }
 

@@ -32,11 +32,17 @@ const CorazonFavorito = ( { pagina , articulo , id} ) => {
 
    const agregarFav = () => {
       const url = `https://proyecto-5-tienda.herokuapp.com/api/v1/usuarios/${usuario.id}`
-      usuario.favoritos.push(articulo)
+      usuario.favoritos.push({
+        _id : articulo._id,
+        articulo : articulo.articulo,
+        imagen : articulo.imagen,
+        ofertas : articulo.ofertas,
+      })
+
       const favoritos ={
         favoritos: usuario.favoritos
       }
-       axios.patch(url , favoritos)
+      axios.patch(url , favoritos)
       setEstatus('si')
     }
 

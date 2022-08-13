@@ -32,16 +32,6 @@ const FavoritosCard = ( { articuloFavorito } ) => {
                 }
                 <h4>{articuloFavorito.articulo}</h4>
             </div>
-            <div className="card_precios_favoritos">
-              {
-                articuloFavorito.ofertas === true ? 
-                <div className='precios_promocion_favoritos'>
-                    <p className='precio_viejo_favoritos' >${articuloFavorito.precio}. M.X.</p>
-                    <p className='precio_favoritos' >${articuloFavorito.precio_con_descuento}. M.X.</p>
-                </div> :
-                <p className='precio_favoritos' >${articuloFavorito.precio}. M.X.</p>
-              }
-            </div>
         </div>
     </div>
   )

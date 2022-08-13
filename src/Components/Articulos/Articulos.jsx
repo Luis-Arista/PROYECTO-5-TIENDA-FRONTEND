@@ -11,19 +11,19 @@ const Articulos = ( { parametro } ) => {
 
     const cargar = async () => {
         const url = `https://proyecto-5-tienda.herokuapp.com/api/v1/articulos/lista`
-        const respuesta = await axios.post(url , parametro)
+        const respuesta = await axios.post(url , parametro.busqueda)
         setArticulos( respuesta.data)
     }
 
     useEffect( () => {
         cargar()
-    },[parametro])
+    },[parametro.busqueda])
     
 
   return (
     <section>
         <div className="contenedor_titulo_articulos">
-            <h2>Nuestros productos</h2>
+            <h2>{parametro.titulo}</h2>
         </div>
         <div className="contenedor_articulos">
             <div className="lista_articulos">

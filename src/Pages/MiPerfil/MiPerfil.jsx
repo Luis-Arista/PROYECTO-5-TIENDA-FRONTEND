@@ -6,7 +6,7 @@ import DatosPerfil from '../../Components/DatosPerfil/DatosPerfil'
 const MiPerfil = () => {
     const navigate = useNavigate()
 
-    const { usuario } = useContext( UserContext )
+    const { usuario , setUsuario } = useContext( UserContext )
 
     useEffect( () => {
         if( usuario === 'ninguno'){
@@ -16,7 +16,7 @@ const MiPerfil = () => {
 
   return (
     <main>
-        <DatosPerfil usuario={usuario}/>
+        <DatosPerfil setUsuario={setUsuario} usuario={usuario}/>
     </main>
   )
 }

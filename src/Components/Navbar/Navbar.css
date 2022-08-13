@@ -32,15 +32,55 @@ nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 50%;
 }
 
+
+.menu_ususario_boton{
+    padding: 10px 15px;
+    background-color: blue;
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+    margin: 0 5px;
+}
+
+.menu_ususario{
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+    fill: black;
+    transition: all 0.5s;
+}
+
+.menu_usuario_perfil:hover{
+    transform: scale(1.2);
+    
+}
+
+.menu_usuario_corazon:hover{
+    fill: rgb(218, 16, 16);
+    animation: animacion_corazon 1s infinite;
+}
 
 .categorias{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    flex-wrap: nowrap;
+}
+
+
+.categorias button{
+     background-color: transparent;
+     padding: 5px;
+     border: none;
+     margin: 5px 0;
+     cursor: pointer;
+}
+
+.categorias button:hover{
+     font-weight: bolder;
 }
 
 .navbar_body{
@@ -59,6 +99,12 @@ nav{
 
 .navbar_menu_option:hover{
     color: blue;
+}
+
+.agregar_producto{
+    text-decoration: none;
+    color: black;
+    font-weight: bolder;
 }
 
 .flecha_abajo{
@@ -87,3 +133,12 @@ nav{
     color: #000000;
 }
 
+
+
+@keyframes animacion_corazon {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    62% { transform: scale(1); }
+    74% { transform: scale(1.2); }
+    100%{ transform: scale(1);}
+}
