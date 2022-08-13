@@ -12,15 +12,16 @@ const InformacionDelArticulo = () => {
     const [ articulo , setArticulo ] = useState({})
     const [ compra , setCompra ] = useState(false)
     
-    const cargar = async() => {
-        const url = `https://proyecto-5-tienda.herokuapp.com/api/v1/articulos/${id}`
-        const respuesta = await axios.get( url )
-        setArticulo( respuesta.data)
-    }
+    
     
     useEffect( () => {
+        const cargar = async() => {
+            const url = `https://proyecto-5-tienda.herokuapp.com/api/v1/articulos/${id}`
+            const respuesta = await axios.get( url )
+            setArticulo( respuesta.data)
+        }
         cargar()
-    },[])
+    },[id])
 
 
   return (

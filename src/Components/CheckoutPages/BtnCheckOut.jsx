@@ -19,6 +19,7 @@ const BtnCheckOut = ({ setCompra,  currency, showSpinner , amount }) => {
             currency: currency,
           },
         });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
       }, [currency, showSpinner]);
 
   return (

@@ -9,13 +9,14 @@ const Articulos = ( { parametro } ) => {
 
     const [ articulos , setArticulos ] = useState([])
 
-    const cargar = async () => {
-        const url = `https://proyecto-5-tienda.herokuapp.com/api/v1/articulos/lista`
-        const respuesta = await axios.post(url , parametro.busqueda)
-        setArticulos( respuesta.data)
-    }
+    
 
     useEffect( () => {
+        const cargar = async () => {
+            const url = `https://proyecto-5-tienda.herokuapp.com/api/v1/articulos/lista`
+            const respuesta = await axios.post(url , parametro.busqueda)
+            setArticulos( respuesta.data)
+        }
         cargar()
     },[parametro.busqueda])
     

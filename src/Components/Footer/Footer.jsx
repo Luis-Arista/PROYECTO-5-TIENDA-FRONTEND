@@ -9,9 +9,9 @@ const Footer = () => {
         <div className="contenedor_footer">
             <div className="footer_header">
               <div className="redes_sociales">
-                <a href="#"><BsInstagram className='icono_social'/></a>
-                <a href="#"><BsFacebook className='icono_social'/></a>
-                <a href="#"><BsWhatsapp className='icono_social'/></a>
+                <a href="/#"><BsInstagram className='icono_social'/></a>
+                <a href="/#"><BsFacebook className='icono_social'/></a>
+                <a href="/#"><BsWhatsapp className='icono_social'/></a>
               </div>
             </div>
             <div className="footer_body">

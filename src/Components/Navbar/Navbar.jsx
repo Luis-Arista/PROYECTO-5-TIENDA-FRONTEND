@@ -9,7 +9,7 @@ import { BsPersonCircle , BsHeartFill } from "react-icons/bs";
 
 
 const Navbar = () => {
-
+ 
     let navigate = useNavigate()
 
     const[ flag , setFlag ] = useState(false)
@@ -26,7 +26,7 @@ const Navbar = () => {
     useEffect( () => {
         cargar()
         setCargando(false)
-    },[cargando])
+    },[cargando , setCargando])
 
     const mostrarArticulos = (e , busqueda) => {
         e.preventDefault()
@@ -74,7 +74,7 @@ const Navbar = () => {
                 <div className="navbar_body">
                     <div className="navbar_menu">
                         <Link onMouseEnter={() => setFlag(false)} className='navbar_menu_option' to='/'>Inicio</Link> 
-                        <Link onMouseEnter={() => setFlag(true)} style={ flag ? {color: 'blue'} : {}} className='navbar_menu_option' to='/productos'>Productos <span className='flecha_abajo'>▼</span></Link> 
+                        <Link onClick={() => setFlag(false)} onMouseEnter={() => setFlag(true)} style={ flag ? {color: 'blue'} : {}} className='navbar_menu_option' to='/productos'>Productos <span className='flecha_abajo'>▼</span></Link> 
                     </div>
                     {
                         usuario !== 'ninguno' && usuario.role === 'Administrador' ?

@@ -58,6 +58,7 @@ const FormAgregarProductos = () => {
     if(flag){
       extablecerCampos()
     }
+            // eslint-disable-next-line react-hooks/exhaustive-deps
   },[flag])
 
    const Agregar = async( e ) => {

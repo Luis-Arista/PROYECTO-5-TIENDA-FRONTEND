@@ -13,24 +13,25 @@ const BotonesInfoArticulo = ( { setCompra, articulo , id } ) => {
     const [ estatus , setEstatus ] = useState('')
 
     
-    const cargar = () => {
-       if ( usuario === 'ninguno'){
-        setEstatus( 'logeate para comprar' )
-       } else {
-            const idFavorito = usuario.favoritos.find( ( favorito ) => {
-                return favorito._id === id
-            })
-            if( !idFavorito) {
-                setEstatus('Agregar a favoritos')
-            } else {
-                setEstatus('Quitar de favoritos')
-            }
-       }
-    }
+   
 
     useEffect( () => {
+        const cargar = () => {
+            if ( usuario === 'ninguno'){
+             setEstatus( 'logeate para comprar' )
+            } else {
+                 const idFavorito = usuario.favoritos.find( ( favorito ) => {
+                     return favorito._id === id
+                 })
+                 if( !idFavorito) {
+                     setEstatus('Agregar a favoritos')
+                 } else {
+                     setEstatus('Quitar de favoritos')
+                 }
+            }
+         }
         cargar()
-    },[]) 
+    },[usuario , id]) 
 
 
     const manejarClick = (e) => {
