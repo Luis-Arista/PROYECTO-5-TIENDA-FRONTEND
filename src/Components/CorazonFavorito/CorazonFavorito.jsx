@@ -9,7 +9,10 @@ const CorazonFavorito = ( { pagina , articulo , id} ) => {
     const { usuario } = useContext( UserContext )
     const  [estatus , setEstatus]  = useState()
 
-    const cargar = () => {
+    
+
+   useEffect( () => {
+    const cargar = () => { 
       if( usuario === 'ninguno'){
         setEstatus('sin usuario')
       }else {
@@ -23,10 +26,8 @@ const CorazonFavorito = ( { pagina , articulo , id} ) => {
         }
       }
     }
-
-   useEffect( () => {
     cargar()
-   },[id])
+   },[id , usuario])
 
  
 
